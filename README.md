@@ -7,7 +7,9 @@ encoding的部分
 recognize的部分
 
 一. 先做RFID的偵測
+
 二. 做picamera拍照的動作
+
 三. 進行recognize的動作
 
 
