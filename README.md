@@ -7,6 +7,10 @@ this is for putting my code
 encoding的部分
 
 主要把照片拿去做成128D，每個id都有屬於他的pickle檔
+
+要做輸入的指令為 --encoding XXX.pickle --dataset dataset/XXX
+
+
 11/16(有討論到的）
 
 程式碼的編排
