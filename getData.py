@@ -4,8 +4,11 @@ import  time
 
 camera = picamera.PiCamera()
 camera.resolution =  (640,480) 
-for i in range(0,10):
+print("Start to take picture")
+time.sleep(1)
+for i in range(20,30):
+	print("picture %d"%(i))
+	#time.sleep(2)
+	#camera.capture('howard.png')
+	camera.capture('howard%s.png'%(i))
 
-	time.sleep(2)
-	#camera.capture('howard.jpg')
-	camera.capture('howard%s.jpg'%(i))
