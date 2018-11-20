@@ -72,19 +72,58 @@ recognize的部分
     
 
 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
-關於使用到的 face_recognition package (網址：https://face-recognition.readthedocs.io/en/latest/face_recognition.html#face_recognition.api.compare_faces)
+關於使用到的 face_recognition package 
+(網址：https://face-recognition.readthedocs.io/en/latest/face_recognition.html#face_recognition.api.compare_faces)
 
-    face_recognition.api.compare_faces(known_face_encodings, face_encoding_to_check, tolerance=0.6)
+1.face_recognition.compare_faces
+       
+       face_recognition.api.compare_faces(known_face_encodings, face_encoding_to_check, tolerance=0.6)
 
-Compare a list of face encodings against a candidate encoding to see if they match.
+意思： Compare a list of face encodings against a candidate encoding to see if they match.
 
 Parameters:	
-    known_face_encodings – A list of known face encodings
-    face_encoding_to_check – A single face encoding to compare against the list
-    tolerance – How much distance between faces to consider it a match. Lower is more strict. 0.6 is typical best performance.
-Returns:	
-    A list of True/False values indicating which known_face_encodings match the face encoding to check
+   known_face_encodings – A list of known face encodings
+   
+   face_encoding_to_check – A single face encoding to compare against the list
+   
+   tolerance – How much distance between faces to consider it a match. Lower is more strict. 0.6 is typical best performance.
     
+Returns:	
+
+   A list of True/False values indicating which known_face_encodings match the face encoding to check
+
+2.face_recognition.face_distance
+
+    face_recognition.api.face_distance(face_encodings, face_to_compare)
+
+意思： Given a list of face encodings, compare them to a known face encoding and get a euclidean distance for each comparison face. The distance tells you how similar the faces are.
+
+Parameters:	
+
+   faces – List of face encodings to compare
+    
+   face_to_compare – A face encoding to compare against
+   
+Returns:	
+   A numpy ndarray with the distance for each face in the same order as the ‘faces’ array
+   
+3.face_recognition.face_encodings
+
+    face_recognition.api.face_encodings(face_image, known_face_locations=None, num_jitters=1)
+    
+意思： Given an image, return the 128-dimension face encoding for each face in the image.
+
+Parameters:	
+
+   face_image – The image that contains one or more faces
+   
+   known_face_locations – Optional - the bounding boxes of each face if you already know them.
+   
+   num_jitters – How many times to re-sample the face when calculating encoding. Higher is more accurate, but slower (i.e. 100 is 100x slower)
+
+Returns:	
+   
+   A list of 128-dimensional face encodings (one for each face in the image)
     
 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 11/20
