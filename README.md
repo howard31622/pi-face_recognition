@@ -82,11 +82,10 @@ recognize的部分
 意思： Compare a list of face encodings against a candidate encoding to see if they match.
 
 Parameters:	
-   known_face_encodings – A list of known face encodings
-   
-   face_encoding_to_check – A single face encoding to compare against the list
-   
-   tolerance – How much distance between faces to consider it a match. Lower is more strict. 0.6 is typical best performance.
+
+       known_face_encodings – A list of known face encodings
+       face_encoding_to_check – A single face encoding to compare against the list
+       tolerance – How much distance between faces to consider it a match. Lower is more strict. 0.6 is typical best performance.
     
 Returns:	
 
@@ -100,10 +99,9 @@ Returns:
 
 Parameters:	
 
-   faces – List of face encodings to compare
-    
-   face_to_compare – A face encoding to compare against
-   
+       faces – List of face encodings to compare
+       face_to_compare – A face encoding to compare against
+
 Returns:	
    A numpy ndarray with the distance for each face in the same order as the ‘faces’ array
    
@@ -115,9 +113,8 @@ Returns:
 
 Parameters:	
 
-   face_image – The image that contains one or more faces
-   
-   known_face_locations – Optional - the bounding boxes of each face if you already know them.
+      face_image – The image that contains one or more faces
+      known_face_locations – Optional - the bounding boxes of each face if you already know them.
    
    num_jitters – How many times to re-sample the face when calculating encoding. Higher is more accurate, but slower (i.e. 100 is 100x slower)
 
