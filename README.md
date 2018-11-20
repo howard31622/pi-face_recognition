@@ -72,7 +72,21 @@ recognize的部分
     
 
 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+關於使用到的 face_recognition package (網址：https://face-recognition.readthedocs.io/en/latest/face_recognition.html#face_recognition.api.compare_faces)
 
+    face_recognition.api.compare_faces(known_face_encodings, face_encoding_to_check, tolerance=0.6)
+
+Compare a list of face encodings against a candidate encoding to see if they match.
+
+Parameters:	
+    known_face_encodings – A list of known face encodings
+    face_encoding_to_check – A single face encoding to compare against the list
+    tolerance – How much distance between faces to consider it a match. Lower is more strict. 0.6 is typical best performance.
+Returns:	
+    A list of True/False values indicating which known_face_encodings match the face encoding to check
+    
+    
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 11/20
 
 1.test data和收集data方式
