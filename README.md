@@ -113,10 +113,10 @@ Returns:
 
 Parameters:	
 
-      face_image – The image that contains one or more faces
-      known_face_locations – Optional - the bounding boxes of each face if you already know them.
+        face_image – The image that contains one or more faces
+        known_face_locations – Optional - the bounding boxes of each face if you already know them.
    
-   num_jitters – How many times to re-sample the face when calculating encoding. Higher is more accurate, but slower (i.e. 100 is 100x slower)
+        num_jitters – How many times to re-sample the face when calculating encoding. Higher is more accurate, but slower (i.e. 100 is 100x slower)
 
 Returns:	
    
