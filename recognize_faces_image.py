@@ -110,8 +110,7 @@ while True:
         
         
 
-        #x = 1
-        #if x == 1 :
+	#enter the database to search if your card id is the same as uid 
         for a in database:
             if a [1] == uid:
             #if x == 1 :    
@@ -139,8 +138,7 @@ while True:
                     matches = face_recognition.compare_faces(data["encodings"],  encoding ,tolerance=0.3)
                     #print("encoding :" , encoding)
                     #print (data["encodings"])
-                    #matches = face_recognition.compare_faces(data["encodings"],
-		#	encoding )
+                    #matches = face_recognition.compare_faces(data["encodings"],encoding )
                     name = "Unknown"
                     matchTimeStart = time.time()
                     # check to see if we have found a match
