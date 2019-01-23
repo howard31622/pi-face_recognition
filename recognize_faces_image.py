@@ -92,8 +92,8 @@ while True:
         
         #image = cv2.imread(args["image"])
         image = cv2.imread("%s.png"%(uid))
-        small_frame = cv2.resize(image, (0, 0), fx=1, fy=1)
-        rgb_small_frame = small_frame[:, :, ::-1]
+        #small_frame = cv2.resize(image, (0, 0), fx=1, fy=1)
+        #rgb_small_frame = small_frame[:, :, ::-1]
         
         print("[INFO] show Image")
         cv2.imshow("Image", image)
