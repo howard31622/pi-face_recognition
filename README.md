@@ -1,8 +1,13 @@
 # pi-face_recognition
 this is for putting my code
 
-
-
+## 各個程式碼解釋
+  1. encoding.py ==> 用於做svm的training部分
+  2. encode_faces.py ==> 用於處理encoding人臉並產生pickle檔
+  3. recognize_face_image.py ==> 用於辨識人臉的程式碼
+  4. getData.py ==> 用來拍攝大量的照片作為training data
+  5. getTestData.py ==> 用來拍攝一張照片所用的
+  
 
 
 
