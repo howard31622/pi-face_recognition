@@ -137,6 +137,10 @@ Returns:
    A list of 128-dimensional face encodings (one for each face in the image)
     
 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
+
+## 紀錄
+
 11/20
 
 1.test data和收集data方式
