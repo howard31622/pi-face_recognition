@@ -7,6 +7,10 @@ this is for putting my code
   3. recognize_face_image.py ==> 用於辨識人臉的程式碼
   4. getData.py ==> 用來拍攝大量的照片作為training data
   5. getTestData.py ==> 用來拍攝一張照片所用的
+  ### 0520版
+  1.getData.py
+  2.svmData.py
+  3.testData.py
   
 
 
@@ -33,7 +37,7 @@ this is for putting my code
 要做輸入的指令為 --encoding XXX.pickle --dataset dataset/XXX
 
 
-11/16(有討論到的）
+
 
 程式碼的編排
 
@@ -138,26 +142,7 @@ Returns:
     
 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 
-
-## 紀錄
-
-11/20
-
-1.test data和收集data方式
+### 0520版本的
 
 
-下次要做到的部分： 把整個系統做好
-
-11/16
-下次要做到的部分：
-
-1.可以建立各自的encoding檔（pickle）
-
-2.拍照做data的程式要完成
-
-3.收集兩週進實驗室的人臉
-
-要做的預備部分：
-
-如果以上的實驗結果失敗，會試著使用建model來測試
 
