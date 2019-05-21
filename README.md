@@ -8,9 +8,9 @@ this is for putting my code
   4. getData.py ==> 用來拍攝大量的照片作為training data
   5. getTestData.py ==> 用來拍攝一張照片所用的
   ### 0520版
-  1.getData.py
-  2.svmData.py
-  3.testData.py
+  1. getData.py
+  2. svmData.py
+  3. testData.py
   
 
 
