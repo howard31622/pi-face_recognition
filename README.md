@@ -8,9 +8,9 @@ this is for putting my code
   4. getData.py ==> 用來拍攝大量的照片作為training data
   5. getTestData.py ==> 用來拍攝一張照片所用的
   ### 0520版
-  1. getData.py
-  2. svmData.py
-  3. testData.py
+  1. getData.py ==> 用來收集照片(給他一個填帳號及密碼環境做輸入)
+  2. svmData.py ==> 這邊專門把檔案做 SVM training 並輸出.mat檔
+  3. testData.py ==> 這邊會利用悠遊卡的id去搜尋他的model並且辨識他是不是本人
   
 
 
@@ -143,6 +143,13 @@ Returns:
 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 
 ### 0520版本的
+
+### getData.py
+
+### svmData.py
+
+### testData.py
+
 
 
 
