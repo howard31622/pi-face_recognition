@@ -64,7 +64,7 @@ def test():
             camera.preview.fullscreen = True
             camera.capture('./'+uid+'.jpg')
             cameraUseed = time.time()
-            cameraUse = cameraUseop-cameraUseed
+            cameraUse = cameraUseed - cameraUseop
             print("cameraUse : ",cameraUse)
             
             
@@ -72,58 +72,70 @@ def test():
             encodingaop = time.time()
             image = cv2.imread('./'+uid+'.jpg')
             encodingaed = time.time()
-            encodinga = encodingaop - encodingaed
+            encodinga = encodingaed - encodingaop
             print("encodinga : ",encodinga)
             rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
             
             # print("rgb : ",rgb)
             # detect the (x, y)-coordinates of the bounding boxes
             # corresponding to each face in the input image
+            locationop = time.time()
             boxes = face_recognition.face_locations(rgb,model="hog")
-            # print("boxes : ",boxes )
+            locationed = time.time()
+            location = locationed - locationop
+            #print("boxes : ",boxes )
+            
+            
+            
             # compute the facial embedding for the face
+            encodingbop = time.time()
             encodings = face_recognition.face_encodings(rgb, boxes)
-            #print(encodings)
+            encodingbed = time.time()
+            
+            #print(encodings[0][0])
             
             camera.stop_preview()
             
             #if camera can't encode any face
-            if encodings == "":
+            if encodings:
+                #input predict model and output the result
+                pt_data = np.array(encodings,dtype='float32')
+                inputSvm = input("Please intput your name. For example : ginger ,howard ,laio ,oscar ,tingju ,xin ,yancheng ,yuchen : ")
+                if inputSvm == "howard":
+                    (par1,par2) = svmhoward.predict(pt_data)
+                    isTrue(par2[0][0])
+                elif inputSvm == "laio":
+                    (par1,par2) = svmlaio.predict(pt_data)
+                    isTrue(par2[0][0])
+                elif inputSvm == "oscar":
+                    (par1,par2) = svmoscar.predict(pt_data)
+                    isTrue(par2[0][0])
+                elif inputSvm == "tingju":
+                    (par1,par2) = svmtingju.predict(pt_data)
+                    isTrue(par2[0][0])
+                elif inputSvm == "xin":
+                    (par1,par2) = svmxin.predict(pt_data)
+                    isTrue(par2[0][0])
+                elif inputSvm == "yancheng":
+                    (par1,par2) = svmyancheng.predict(pt_data)
+                    isTrue(par2[0][0])
+                elif inputSvm == "yuchen":
+                    (par1,par2) = svmyuchen.predict(pt_data)
+                    isTrue(par2[0][0])
+                #print("the result of prediction  : " )
+            
+            else : 
                 print("please try again")
-                break
+                
             
             
-            #input predict model and output the result
-            pt_data = np.array(encodings,dtype='float32')
-            inputSvm = input("Please intput your name. For example : ginger ,howard ,laio ,oscar ,tingju ,xin ,yancheng ,yuchen : ")
-            if inputSvm == "howard":
-                (par1,par2) = svmhoward.predict(pt_data)
-                isTrue(par2[0][0])
-            elif inputSvm == "laio":
-                (par1,par2) = svmlaio.predict(pt_data)
-                isTrue(par2[0][0])
-            elif inputSvm == "oscar":
-                (par1,par2) = svmoscar.predict(pt_data)
-                isTrue(par2[0][0])
-            elif inputSvm == "tingju":
-                (par1,par2) = svmtingju.predict(pt_data)
-                isTrue(par2[0][0])
-            elif inputSvm == "xin":
-                (par1,par2) = svmxin.predict(pt_data)
-                isTrue(par2[0][0])
-            elif inputSvm == "yancheng":
-                (par1,par2) = svmyancheng.predict(pt_data)
-                isTrue(par2[0][0])
-            elif inputSvm == "yuchen":
-                (par1,par2) = svmyuchen.predict(pt_data)
-                isTrue(par2[0][0])
-            #print("the result of prediction  : " )
             
             #print(par2[0][0])
     
     #print("testing")
 
 #to test the predict model is truev
+
 def isTrue(result):
     if str(int(result)) == "1" :
         print("")    
