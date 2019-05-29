@@ -7,6 +7,7 @@ import os
 import numpy as np
 import sys
 import time
+import csv
 sys.path.insert(0, "/home/pi/pi-rc522/ChipReader")
 from pirc522 import RFID
 
@@ -27,17 +28,27 @@ util.debug = False
 
 #PiCamera default setting
 camera = PiCamera()
-camera.resolution =(320,320)
+camera.resolution =(240,240)
 camera.brightness = 60
 camera.framerate = 1
 
+#previously import user RFID
+RFIDData = []
 
 
 
-
+def RFIDInput():
+    with open('information.csv',newline = '') as csvFile:
+        rows = csv.reader(csvFile)
+        for row in rows:
+            RFIDData.append(row)
+        
 
 
 def test():
+    camera.start_preview()
+    camera.preview.fullscreen = False
+    camera.preview.window = (750,500,600,600)
     while(True):
         
         #use RFID to enter sign in
@@ -48,6 +59,8 @@ def test():
         (error,getuid) = rdr.anticoll()    
         
         if not error:
+            totalop = time.time()
+            
             
             useRFIDop = time.time()
             print ("Card read UID: "+str(getuid[0])+","+str(getuid[1])+","+str(getuid[2])+","+str(getuid[3]))
@@ -60,20 +73,19 @@ def test():
             
             #preview  the camera for user to see himself
             cameraUseop = time.time()
-            camera.start_preview()
-            camera.preview.fullscreen = True
+            
             camera.capture('./'+uid+'.jpg')
             cameraUseed = time.time()
             cameraUse = cameraUseed - cameraUseop
-            print("cameraUse : ",cameraUse)
+            
             
             
             #encoding picture
-            encodingaop = time.time()
+            readImageop = time.time()
             image = cv2.imread('./'+uid+'.jpg')
-            encodingaed = time.time()
-            encodinga = encodingaed - encodingaop
-            print("encodinga : ",encodinga)
+            readImageed = time.time()
+            readImage = readImageed - readImageop
+            
             rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
             
             # print("rgb : ",rgb)
@@ -83,23 +95,52 @@ def test():
             boxes = face_recognition.face_locations(rgb,model="hog")
             locationed = time.time()
             location = locationed - locationop
+            
             #print("boxes : ",boxes )
             
             
             
             # compute the facial embedding for the face
-            encodingbop = time.time()
+            encodingop = time.time()
             encodings = face_recognition.face_encodings(rgb, boxes)
-            encodingbed = time.time()
+            encodinged = time.time()
+            encoding = encodinged- encodingop
+            
             
             #print(encodings[0][0])
             
-            camera.stop_preview()
+            
             
             #if camera can't encode any face
+            entersvmop = time.time()
             if encodings:
                 #input predict model and output the result
                 pt_data = np.array(encodings,dtype='float32')
+                for rfidData in RFIDData:
+                    if rfidData[1] == uid:
+                        if rfidData[0] == "howard":
+                            (par1,par2) = svmhoward.predict(pt_data)
+                            isTrue(par2[0][0])
+                        elif rfidData[0] == "laio":
+                            (par1,par2) = svmlaio.predict(pt_data)
+                            isTrue(par2[0][0])
+                        elif rfidData[0] == "oscar":
+                            (par1,par2) = svmoscar.predict(pt_data)
+                            isTrue(par2[0][0])
+                        elif rfidData[0] == "tingju":
+                            (par1,par2) = svmtingju.predict(pt_data)
+                            isTrue(par2[0][0])
+                        elif rfidData[0] == "xin":
+                            (par1,par2) = svmxin.predict(pt_data)
+                            isTrue(par2[0][0])
+                        elif rfidData[0] == "yancheng":
+                            (par1,par2) = svmyancheng.predict(pt_data)
+                            isTrue(par2[0][0])
+                        elif rfidData[0] == "yuchen":
+                            (par1,par2) = svmyuchen.predict(pt_data)
+                            isTrue(par2[0][0])
+                
+                ''''
                 inputSvm = input("Please intput your name. For example : ginger ,howard ,laio ,oscar ,tingju ,xin ,yancheng ,yuchen : ")
                 if inputSvm == "howard":
                     (par1,par2) = svmhoward.predict(pt_data)
@@ -123,12 +164,28 @@ def test():
                     (par1,par2) = svmyuchen.predict(pt_data)
                     isTrue(par2[0][0])
                 #print("the result of prediction  : " )
-            
-            else : 
+                '''
+            else :
+                print()
                 print("please try again")
-                
+                print()
+            entersvmed = time.time()
+            entersvm = entersvmed - entersvmop
+            totaled = time.time()
+            total = totaled - totalop
             
-            
+            print()
+            print("cameraUse, readImage, location, encoding,  entersvm,  total time")
+            print(cameraUse,readImage,location,encoding,entersvm,total )
+            print("cameraUse : ",cameraUse)
+            print("readImage : ",readImage)
+            print("location : ",location)
+            print("encoding : ",encoding)
+            print("entersvm : ",entersvm)
+            print("total time : ", total)
+            print()
+        time.sleep(1)
+    camera.stop_preview()        
             
             #print(par2[0][0])
     
@@ -148,4 +205,5 @@ def isTrue(result):
     
     
 if __name__ == "__main__":
+    RFIDInput()
     test()
