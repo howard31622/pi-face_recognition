@@ -28,12 +28,11 @@ util.debug = False
 
 #PiCamera default setting
 camera = PiCamera()
-camera.resolution =(240,240)
+camera.resolution =(320,320)
 camera.brightness = 60
-camera.framerate = 1
 
 #previously import user RFID
-RFIDData = []
+RFIDData = [["ginger","165,189,253,99"],["howard","197,168,121,52"],["laio","147,41,117,212"],["oscar","21,177,1,100"],["tingju","207,98,20,37"],["xin","37,13,7,100"],["yancheng","239,137,114,95"],["yuchen","239,89,16,37"]]
 
 
 
@@ -49,6 +48,7 @@ def test():
     camera.start_preview()
     camera.preview.fullscreen = False
     camera.preview.window = (750,500,600,600)
+    
     while(True):
         
         #use RFID to enter sign in
@@ -120,6 +120,7 @@ def test():
                     if rfidData[1] == uid:
                         if rfidData[0] == "howard":
                             (par1,par2) = svmhoward.predict(pt_data)
+                            print("haha")
                             isTrue(par2[0][0])
                         elif rfidData[0] == "laio":
                             (par1,par2) = svmlaio.predict(pt_data)
@@ -140,31 +141,7 @@ def test():
                             (par1,par2) = svmyuchen.predict(pt_data)
                             isTrue(par2[0][0])
                 
-                ''''
-                inputSvm = input("Please intput your name. For example : ginger ,howard ,laio ,oscar ,tingju ,xin ,yancheng ,yuchen : ")
-                if inputSvm == "howard":
-                    (par1,par2) = svmhoward.predict(pt_data)
-                    isTrue(par2[0][0])
-                elif inputSvm == "laio":
-                    (par1,par2) = svmlaio.predict(pt_data)
-                    isTrue(par2[0][0])
-                elif inputSvm == "oscar":
-                    (par1,par2) = svmoscar.predict(pt_data)
-                    isTrue(par2[0][0])
-                elif inputSvm == "tingju":
-                    (par1,par2) = svmtingju.predict(pt_data)
-                    isTrue(par2[0][0])
-                elif inputSvm == "xin":
-                    (par1,par2) = svmxin.predict(pt_data)
-                    isTrue(par2[0][0])
-                elif inputSvm == "yancheng":
-                    (par1,par2) = svmyancheng.predict(pt_data)
-                    isTrue(par2[0][0])
-                elif inputSvm == "yuchen":
-                    (par1,par2) = svmyuchen.predict(pt_data)
-                    isTrue(par2[0][0])
-                #print("the result of prediction  : " )
-                '''
+               
             else :
                 print()
                 print("please try again")
@@ -184,7 +161,7 @@ def test():
             print("entersvm : ",entersvm)
             print("total time : ", total)
             print()
-        time.sleep(1)
+        #time.sleep(1)
     camera.stop_preview()        
             
             #print(par2[0][0])
@@ -205,5 +182,6 @@ def isTrue(result):
     
     
 if __name__ == "__main__":
-    RFIDInput()
+    #RFIDInput()
+    print(RFIDData)
     test()
