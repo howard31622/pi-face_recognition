@@ -140,7 +140,16 @@ Returns:
     
 
 ## Picamera package
-
+### 這個部分不外乎有解析度大小、fps、有沒有全螢幕、亮度等等
+* camera.reosultion(h,w) =>這個就是可以調你拍照所需要解析度大小
+  * ex:camera.resolution(320,320)
+* camera.start_preview() =>這個就是預覽，可以利用fps的方式調整預覽的方式，有這個開頭就要有 camera.stop_preview()去做收尾的動作
+* camera.framerate =>這個就是調整你的fps的地方，在錄影後要擷取成照片時，可以利用這個去調節你所需的找片量，也可以去對preview做調整
+  * ex:camera.framerate = 1
+* camera.brightness =>這個就是調明亮度，也就是修圖相機常在做的事情，在沒有這個function的情況下會以brightness = 50 為初始值
+  * ex:camera.brightness = 60
+* camera.capture() =>這個就是一般使用拍照的功能
+  * ex:camera.capture('./test.jpg')
 * Reference :
   * 全部的package https://picamera.readthedocs.io/en/release-1.13/
   * 新手可以看的 https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/9
