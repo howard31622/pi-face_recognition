@@ -87,7 +87,7 @@ this is for putting my code
     
 
 
-關於使用到的 face_recognition package 
+## 關於使用到的 face_recognition package 
 
 (網址：https://face-recognition.readthedocs.io/en/latest/face_recognition.html#face_recognition.api.compare_faces)
 
@@ -139,7 +139,11 @@ Returns:
    A list of 128-dimensional face encodings (one for each face in the image)
     
 
+## Picamera package
 
+* Reference :
+  * 全部的package https://picamera.readthedocs.io/en/release-1.13/
+  * 新手可以看的 https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/9
 
 ### 0520版本的
 
