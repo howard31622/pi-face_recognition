@@ -18,19 +18,17 @@ this is for putting my code
 
 
 
-
-＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
-### get data的部分
+## get data的部分
 
 會每次拍攝20張照片作為encoding的部分
 
-＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
-### test data的部分
+
+## test data的部分
 
 會先再拍一張作為output的測試
 
-＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
-### encoding的部分
+
+## encoding的部分
 
 主要把照片拿去做成128D，每個id都有屬於他的pickle檔
 
@@ -39,10 +37,10 @@ this is for putting my code
 
 
 
-程式碼的編排
+## 程式碼的編排
 
-＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
-recognize的部分
+
+* recognize的部分
 
 一. 先做RFID的偵測
 
@@ -88,7 +86,7 @@ recognize的部分
     python encode_faces.py 
     
 
-＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
 關於使用到的 face_recognition package 
 
 (網址：https://face-recognition.readthedocs.io/en/latest/face_recognition.html#face_recognition.api.compare_faces)
@@ -140,7 +138,8 @@ Returns:
    
    A list of 128-dimensional face encodings (one for each face in the image)
     
-＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
+
 
 ### 0520版本的
 
