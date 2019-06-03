@@ -1,5 +1,5 @@
 # pi-face_recognition
-this is for putting my code
+This is my research using the raspberry pi to incremental face recognition
 
 ## 各個程式碼解釋
   1. encoding.py ==> 用於做svm的training部分
